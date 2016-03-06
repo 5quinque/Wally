@@ -28,6 +28,10 @@ class Images extends Eloquent {
 
 }
 
+class ToProcess extends Eloquent {
+
+}
+
 class scrape {
     public function getSubredditLinks($subreddit) {
         $pagesScraped = 0;
@@ -43,7 +47,7 @@ class scrape {
             'after' => &$after
         );
 
-        while ($pagesScraped <= 50) {
+        while ($pagesScraped <= 1) {
             echo "Getting URL {$url}?" . http_build_query($options) . "\n";
             $json = file_get_contents($url."?".http_build_query($options));
             $json = json_decode($json);
@@ -51,19 +55,26 @@ class scrape {
             $count += count($json->data->children);
 
             foreach ($json->data->children as $red) {
-                // Checking the file exists requires downloading it
-                // So we shall also do this in the following method
-                $new_image = $this->checkFileExists($red->data->url);
+                $entity = new ToProcess;
+                $entity->url = $red->data->url;
+                $entity->title = $red->data->title;
 
-                if ($new_image) {
-                    $this->sortImage($new_image);
-                }
+                $entity->save();
+
             }
 
             $after = $json->data->after;
             $pagesScraped += 1;
         }
     }
+
+    // Checking the file exists requires downloading it
+    // So we shall also do this in the following method
+    //$new_image = $this->checkFileExists($red->data->url);
+
+    //if ($new_image) {
+    //    $this->sortImage($new_image);
+    //}
 
     public function checkFileExists($url) {
         $ext = pathinfo($url, PATHINFO_EXTENSION);
@@ -95,7 +106,7 @@ class scrape {
         $sorted_image->extension = $image["ext"];
         $sorted_image->save();
 
-        $exp_name = str_split($image["id"]);
+        $exp_name = str_split($image["md5"]);
 
         $new_image_dir = "tugtug_files/images/" . $exp_name[0] . '/' .  $exp_name[1] . '/';
 
@@ -103,9 +114,11 @@ class scrape {
             mkdir($new_image_dir, 0755, true);
         }
 
-        rename($image["path"], "{$new_image_dir}{$image['id']}.{$image['ext']}");
+        $short_md5 = substr($image['md5'], 0, 4);
+
+        rename($image["path"], "{$new_image_dir}{$short_md5}{$image['id']}.{$image['ext']}");
     }
 }
 
 $x = new scrape;
-//$x->getSubredditLinks("");
+$x->getSubredditLinks("");

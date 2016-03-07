@@ -9,12 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-        <style>
-
-            body {
-
-            }
-
+    <style>
             .header {
                 font-family: 'Lato';
                 border-bottom: 1px solid #e5e5e5;
@@ -24,41 +19,33 @@
                 margin-top: 10px;
             }
 
-            .image {
-                position: relative;
-                display: block;
-                width: 100%;  /* Change this */
-                height: 300px; /* Change this */
-                overflow: hidden;
-            }
-
-            .image img {
+            .format {
+                background-color: rgba(230, 175, 44, 0.7);
+                bottom: 5px;
+                left: 20px;
+                border: 1px solid #ce991b;
+                border-width: 1px 1px 0px 0px;
                 position: absolute;
-                width: 100%;
-                left: -10px; /* Change this */
-                top: -10px;  /* Change this */
+                text-align: center;
+                width: 30px;
+                color: #a3770f;
+                font-size: 8pt;
             }
 
-        </style>
+            .footer {
+                border-top: 1px solid #e5e5e5;
+                color: #777;
+                padding-top: 19px;
+                margin-top: 20px;
+            }
+
+    </style>
     </head>
     <body>
         <div class="container">
             <div class="header ">
                 <h3>TugTug</h3>
             </div>
-            <!--<nav>
-                <ul class="nav nav-justified">
-                    <li>
-                        <a href="#">jpg</a>
-                    </li>
-                    <li>
-                        <a href="#">gif</a>
-                    </li>
-                    <li>
-                        <a href="#">mp4</a>
-                    </li>
-                </ul>
-            </nav>-->
             <div class="row search-row">
                 <div class="col-lg-12">
                     <div class="input-group">
@@ -72,26 +59,83 @@
 
             <div class="row image-row">
                 <div class="col-md-3">
+                    <div class="format">
+                        <span>jpg</span>
+                    </div>
                     <div class="image">
-                        <img src="images/10.jpg" class="img img-responsive img-thumbnail" alt="Responsive image">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97350&w=350&h=350" class="img img-responsive img-thumbnail" alt="Responsive image">
                     </div>
                 </div>
                 <div class="col-md-3">
+                    <div class="format">
+                        <span>gif</span>
+                    </div>
                     <div class="image">
-                        <img src="images/11.jpg" class="img img-responsive img-thumbnail" alt="Responsive image">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97350&w=350&h=350" class="img img-responsive img-thumbnail" alt="Responsive image">
                     </div>
                 </div>
                 <div class="col-md-3">
+                    <div class="format">
+                        <span>jpg</span>
+                    </div>
                     <div class="image">
-                        <img src="images/9.jpg" class="img img-responsive img-thumbnail" alt="Responsive image">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97350&w=350&h=350" class="img img-responsive img-thumbnail" alt="Responsive image">
                     </div>
                 </div>
                 <div class="col-md-3">
+                    <div class="format">
+                        <span>gifv</span>
+                    </div>
                     <div class="image">
-                        <img src="images/7.jpg" class="img img-responsive img-thumbnail" alt="Responsive image">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97350&w=350&h=350" class="img img-responsive img-thumbnail" alt="Responsive image">
                     </div>
                 </div>
             </div>
+
+            <div class="row image-row">
+                <div class="col-md-3">
+                    <div class="format">
+                        <span>mp4</span>
+                    </div>
+                    <div class="image">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=450%C3%97450&w=450&h=450" class="img img-responsive img-thumbnail" alt="Responsive image">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="format">
+                        <span>jpg</span>
+                    </div>
+                    <div class="image">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97350&w=350&h=350" class="img img-responsive img-thumbnail" alt="Responsive image">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="format">
+                        <span>jpg</span>
+                    </div>
+                    <div class="image">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=550%C3%97550&w=550&h=550" class="img img-responsive img-thumbnail" alt="Responsive image">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="format">
+                        <span>jpg</span>
+                    </div>
+                    <div class="image">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97350&w=350&h=350" class="img img-responsive img-thumbnail" alt="Responsive image">
+                    </div>
+                </div>
+            </div>
+
+
+            <footer class="footer">
+                <nav>
+                    <ul class="nav nav-pills">
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Upload</a></li>
+                    </ul>
+                </nav>
+            </footer>
 
 
         </div>

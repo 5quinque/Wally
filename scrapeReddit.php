@@ -114,9 +114,15 @@ class scrape {
             mkdir($new_image_dir, 0755, true);
         }
 
-        $short_md5 = substr($image['md5'], 0, 4);
+        $new_image_filename = sprintf("%s%s%s.%s", $new_image_dir, substr($image['md5'], 0, 4), $image['id'], $image['ext']);
 
-        rename($image["path"], "{$new_image_dir}{$short_md5}{$image['id']}.{$image['ext']}");
+        rename($image["path"], $new_image_filename);
+
+        $this->createThumbnail($new_image_filename);
+    }
+
+    public function createThumbnail($filename) {
+        ;
     }
 }
 
